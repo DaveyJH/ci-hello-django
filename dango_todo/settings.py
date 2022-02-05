@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -26,7 +27,7 @@ SECRET_KEY = 'django-insecure-z_mcpp=amz752kl@4q#utu&buc&c6g@@%6$$k%ycjsucf2$r!)
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    "daveyj.dev.local"
+    ""
 ]
 
 
@@ -76,11 +77,15 @@ WSGI_APPLICATION = 'dango_todo.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR / 'db.sqlite3',
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.parse('postgres://tjrvrgofmbdwtl:7509c2c86e57472fd560be94f07c376c75315132bcfdf33c05ff0b9268ba2fa3@ec2-54-228-95-1.eu-west-1.compute.amazonaws.com:5432/db863nmp02vt7p')
 }
 
 
